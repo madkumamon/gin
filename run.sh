@@ -7,7 +7,7 @@
 # Enable shell debugging.
 set -x
 
-#echo $1
+#+-----------------------------------------------------------+
 
 rvm 1.9.2-p290@$1
 rvm gemdir

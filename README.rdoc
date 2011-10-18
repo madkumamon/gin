@@ -1,0 +1,26 @@
++ Project "GIN"
+    Thin server to update the local projects when making changes in the master branch on github. Acronym originated from combining the words Git and Thin.
+
+1.Clone project:
+    sudo apt-get install git curl // install git curl / установка git curl
+    git clone git@github.com:sedzen/gin.git //clone project / клонирование проекта
+    cd gin //transition into the project directory / переход в каталог проекта
+
+2.Create gem-set:
+    rvm --default use 1.9.2@gin --create // gemset create manually or use the file .rvmrc / создайте гемсет вручную или же воспользуйтес файлом .rvmrc
+
+3.Install gems:
+    gem install bundler // install bundler gem / установите гем "bundler"
+    bundle install // install gems from Gemfile / установите гемы из файла Gemfile
+
+4.Run server:
+    thin start -R gin.ru -p 4000 //start server (-p specify the port)/ запустите сервер (-p укажите порт)
+
+5.Send test block (local imitation Github request):
+    ruby simple_block.rb // start ruby script / старт руби скрипта
+
+6.Inside "simple_block.rb"
+    Curl::Easy.http_post("http://127.0.0.1:4000/", "payload=#{hash}") // specify IP and Port / Укажите IP и Порт
+
+7.Inside "run.sh"
+    Here, after the "+---..---+" specify the bush command / В этом файле после "+---..---+" указываете bash команды. 
